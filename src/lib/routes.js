@@ -8,7 +8,7 @@ import {
      Main, Splash
 } from '../pages';
 
-export default () =>{
+export default () => {
 
     // define where the browser should point to on boot
     Router.root('splash', Splash);

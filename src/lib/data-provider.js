@@ -1,5 +1,5 @@
 import {Router} from "wpe-lightning-sdk";
-import {getMovies} from './Api';
+import {getMovies} from './api';
 
 /**
  *  bind a data request to a specific route, before a page load
@@ -22,5 +22,8 @@ export default () => {
     Router.before("movies", async ({page})=>{
         // first wait for getMovies to resolve with data
         // call something like: page.movies = data; (page === the actual Lightning component instance)
+        return getMovies().then((movies) => {
+          page.movies = movies;
+        })
     }, 500 /* expires */);
 }
